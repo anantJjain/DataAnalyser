@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import ComparisonGraph from './components/ComparisonGraph';
+import QuesAnalysis from './components/QuesAnalysis';
+import Sidebar from './components/Sidebar';
+import SyllabAnalysis from './components/SyllabAnalysis';
+import QuickStats from './components/QuickStats';
+import SkillTest from './components/SkillTest';
+import CenterGrid from './components/CenterGrid';
+import LeftGrid from './components/LeftGrid';
+
+import Modl from './components/Modal';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Sidebar />
+      <CenterGrid />
+      <LeftGrid />
+      {/* <Modl /> */}
+      {/* <Try /> */}
+      
     </div>
   );
 }

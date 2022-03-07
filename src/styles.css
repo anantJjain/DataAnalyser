@@ -1,0 +1,64 @@
+.Navbar{
+    color:aqua ;
+    border: 2px red solid;
+    /* margin: 100px; */
+    
+
+}
+
+.Sidebar{
+    border: 2px red solid;
+    /* margin: 100px; */
+    width: 15vw;
+    height: 100vw;
+    float: left;
+}
+
+.CenterGrid{
+    border: 2px blue solid;
+    /* margin-left: 10.5vw; */
+    width: 50vw;
+    height: 100vw;
+    float: left;
+}
+
+.LeftGrid{
+    border: 2px green solid;
+    /* margin-left:71vw; */
+    height: 100vw;
+    float: left;
+    width: 33vw ;
+}
+
+
+.SkillTest{
+    border: 2px red solid;
+  
+
+}
+
+.QuickStats{
+    border: 2px red solid;
+  
+
+}
+.ComparisonGraph{
+    border: 2px red solid;
+    
+}
+
+.SyllabAnalysis{
+    border: 2px red solid;
+    
+}
+
+.QuesAnalysis{
+    border: 2px red solid;
+ 
+
+}
+
+
+
+
+
