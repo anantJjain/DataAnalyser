@@ -6,7 +6,7 @@ function LeftGrid() {
   return (
     <div className='LeftGrid'>
         <SyllabAnalysis />
-        <QuesAnalysis />
+        {/* <QuesAnalysis /> */}
     </div>
   )
 }

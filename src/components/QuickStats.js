@@ -1,13 +1,26 @@
 import React from 'react'
 import '../../src/styles.css'
+import { UserConsumer } from './userContext'
 
-function QuickStats() {
+function QuickStats(props) {
   return (
-    <div className='QuickStats'>
-      QuickStats
-      Your Rank-
-      Percentile-
-      Correct Answers-
+   
+    // <UserConsumer>
+    //   {
+        
+    //     (rank) =>{
+    //       return (
+    //                 <div className='QuickStats'>
+    //                     QuickStats
+    //                     Your Rank-{rank}
+    //                 </div>
+    //       )
+          
+    //     }
+    //   }
+    // </UserConsumer>
+    <div>
+        {/* Hello */}
     </div>
   )
 }

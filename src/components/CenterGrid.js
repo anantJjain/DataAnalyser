@@ -8,7 +8,7 @@ function CenterGrid() {
     <div className='CenterGrid'>
         <SkillTest />
         <QuickStats />
-        <ComparisonGraph />
+        {/* <ComparisonGraph /> */}
     </div>
       )
 }
