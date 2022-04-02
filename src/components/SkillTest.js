@@ -10,18 +10,41 @@ import {Doughnut} from 'react-chartjs-2'
 function SkillTest() {
 
   const[show,setShow]=useState(false)
-  const [rank,setRank] = useState(12890)
-  const [percentile,setPercentile] = useState(37)
+  const [rank,setRank] = useState(5)
+  const [percentile,setPercentile] = useState(97)
   const [currentscore,setCurrentScore] = useState(10)
+
+  const minRank = 1;
+  const maxPercentile = 100;
+  const minPercentile = 0;
+  const minCurrentScore = 0;
+  const maxCurrentScore = 15;
   
-  const onRankIncrease = () => setRank(rank => rank + 1);
-  const onRankDecrease = () => setRank(rank => rank - 1);
+  const onRankIncrease = () =>    setRank(rank => rank + 1)
+ 
+  const onRankDecrease = () => {
+                                  if(rank>minRank)
+                                    setRank(rank => rank - 1);
+                              }
 
-  const onPercentileIncrease = () => setPercentile(percentile => percentile + 1);
-  const onPercentileDecrease = () => setPercentile(percentile => percentile - 1);
+  const onPercentileIncrease = () => {
+                                        if(percentile<maxPercentile)
+                                        setPercentile(percentile => percentile + 1);
+                              }
 
-  const onCurrentScoreIncrease = () => setCurrentScore(currentscore => currentscore + 1);
-  const onCurrentScoreDecrease = () => setCurrentScore(currentscore => currentscore - 1);
+  const onPercentileDecrease = () => {
+                                        if(percentile>minPercentile)
+                                        setPercentile(percentile => percentile - 1);
+                                      }
+
+  const onCurrentScoreIncrease = () => {
+                                          if(currentscore<maxCurrentScore)
+                                          setCurrentScore(currentscore => currentscore + 1);
+                                        }
+  const onCurrentScoreDecrease = () => {
+                                          if(currentscore>minCurrentScore)
+                                          setCurrentScore(currentscore => currentscore - 1);
+                                        }
 
   const showModal = () => setShow(true)
   
@@ -56,7 +79,7 @@ function SkillTest() {
                   {
                     id: 1,
                     label: '',
-                    data:[5,6,currentscore],
+                    data:[5,6,percentile],
                   },
                 ],
               }}
