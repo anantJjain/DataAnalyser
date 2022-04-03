@@ -4,9 +4,9 @@ import '../../src/styles.css'
 function Sidebar() {
   return (
     <div className='Sidebar'>
-    <div>Dashboard</div>
-    <div>Skill Test</div>
-    <div>Internships</div>
+    <div className='sideDashboard'>Dashboard</div>
+    <div className='sideSkill'>Skill Test</div>
+    <div className='sideInternships'>Internships</div>
     </div>
   )
 }

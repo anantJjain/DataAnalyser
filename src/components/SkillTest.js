@@ -1,18 +1,17 @@
-import React,{useState,useRef, useCallback} from 'react'
-import { hide } from 'react-modal/lib/helpers/ariaAppHider'
+import React,{useState} from 'react'
 import '../../src/styles.css'
 import Modal from './Modal'
 import { Line } from 'react-chartjs-2';
+import {Doughnut} from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart }            from 'react-chartjs-2'
-import {Doughnut} from 'react-chartjs-2'
 
 function SkillTest() {
 
   const[show,setShow]=useState(false)
   const [rank,setRank] = useState(5)
   const [percentile,setPercentile] = useState(97)
-  const [currentscore,setCurrentScore] = useState(10)
+  const [currentscore,setCurrentScore] = useState(12)
 
   const minRank = 1;
   const maxPercentile = 100;
@@ -57,51 +56,80 @@ function SkillTest() {
     'currentscore':currentscore
   }
 
-
   return (
     <div className='SkillTest'>
+
+      <div className='textHead'>Skill Test</div>
       
-      <div>Hypertext Markup Language</div>
-      <div>Questions : 08  |  Duration : 15 mins  |  Submitted on 5 June 2021</div>
+      <div className='SkillContainer'>
+        <div className='TestHeading'>Hypertext Markup Language</div>
+        <div className='TestDetails'>Questions : 08  |  Duration : 15 mins  |  Submitted on 5 June 2021</div>
+      </div>
 
-      <button onClick={showModal}>Update</button>
+      <button onClick={showModal} className='ModalToggler'>Update</button>
       
-      <div>Your Rank-{rank}</div>
-      <div>Your Percentile-{percentile}</div>
-      <div>Your Current score-{currentscore}</div>
+      <div className='QuickStats'>
+          
+          <div className='QuickStatsHeading'>Quick Statistics</div>
+
+            <div className='rankNum'>{rank}</div>
+            <div className='rankName'>YOUR RANK</div>
+          
+            <div className='PercentileNum'>{percentile}</div>
+            <div className='PercentileName'>PERCENTILE</div>
+          
+            <div className='ScoreNum'>{currentscore}</div>
+            <div className='ScoreName'>CORRECT ANSWERS</div>
+
+      </div>
 
 
-      <Line
-        datasetIdKey='id'
-        data={{
-                labels: ['Jun', 'Jul', 'Aug'],
-                datasets: [
-                  {
-                    id: 1,
-                    label: '',
-                    data:[5,6,percentile],
-                  },
-                ],
-              }}
-      />
-
-
-      <Doughnut
-                datasetIdKey='id'
-                data={{
-                        labels: ['Correct Answers','Incorrect Answers'],
-                        datasets: [
-                          {
-                            data:[currentscore,15-currentscore],
-                            backgroundColor: [
-                              '#438AF6',
-                              'rgba(67, 138, 246, 0.1)'
-                            ],
-                          },
-                        ],
-                      }}
-      />
+      <div className='GraphBox'>
+        
+        <h1 className='GraphHead'>Comparison Graph</h1>        
+        { 
+          percentile<72?<p className='PercentileShow'>You scored {percentile}% percentile which is lower than 72% which is the average percentile of all  those who took this test</p>:<p className='PercentileShow'>You scored {percentile}% percentile which is higher than 72% which is the average percentile of all those who took this test</p>
+        }
+                  
       
+          <Line className='LinePercentile'
+            datasetIdKey='id'
+            data={{
+                    labels: ['0%', '20%', '40%' ,'60%','80%','100%'],
+                    datasets: [
+                      {
+                        data:[5,6,10,12,14,55,percentile,45,20,10],
+                      },
+                    ],
+                  }}
+          />
+
+        </div>  
+
+        <h1 className='QuesHead'>Question Analysis {currentscore}/15</h1>        
+        { 
+          currentscore<15?<p className='QuesAnalysis'>You score {currentscore} correct out of 15.You are just a few miles away.</p>:<p className='QuesAnalysis'>You score {currentscore} correct out of 15.Congratulations!!</p>
+        }
+
+        <div className='AnswersPie'>
+            <Doughnut 
+                      className='PieGraph'
+                      datasetIdKey='id'
+                      data={{
+                              labels: ['Correct Answers','Incorrect Answers'],
+                              datasets: [
+                                {
+                                  data:[currentscore,15-currentscore],
+                                  backgroundColor: [
+                                    '#438AF6',
+                                    'rgba(67, 138, 246, 0.1)'
+                                  ],
+                                },
+                              ],
+                            }}
+            />
+        </div>
+
       <Modal 
           data={data} 
           onRankIncrease={onRankIncrease}

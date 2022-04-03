@@ -26,6 +26,8 @@ return (
 
         <h1>Update Skill Scores</h1>
 
+        <div className='HoriLine'></div>
+
         <h1>Update your rank-{data.rank}</h1>
         <button onClick={onRankIncrease}>Increment</button>
         <button onClick={onRankDecrease}>Decrement</button>
